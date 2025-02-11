@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@components": ["components"],
+
+      "@configs/*": ["configs/*"],
+      "@configs": ["configs"],
+
+      "@hooks/*": ["hooks/*"],
+      "@hooks": ["hooks"],
+
+      "@interfaces/*": ["interfaces/*"],
+      "@interfaces": ["interfaces"],
+
+      "@pages/*": ["pages/*"],
+      "@pages": ["pages"],
+
+      "@services/*": ["services/*"],
+      "@services": ["services"],
+
+      "@store/*": ["store/*"],
+      "@store": ["store"],
+
+      "@styles/*": ["styles/*"],
+      "@styles": ["styles"],
+
+      "@utils/*": ["utils/*"],
+      "@utils": ["utils"]
+    },
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "strict": false,
+    "jsxImportSource": "react",
+    "skipLibCheck": true
+  },
+  "include": ["src", "src/interfaces/declaration.d.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,72 @@
+.TopBar {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  background-color: #2b2b2b;
+
+  -webkit-user-select: none;
+
+  white-space: nowrap;
+  color: #f5f5f5;
+}
+
+.TopBarArea {
+  padding: 0 6px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  -webkit-app-region: drag;
+}
+
+.TopBarControls {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.TopBarControlsButton {
+  width: 46px;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  svg {
+    path {
+      fill: #f5f5f5;
+    }
+  }
+
+  @media (any-hover: hover) {
+    transition: background-color 0.2s ease 0s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active {
+      transition: background-color 0.1s ease 0s;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+.TopBarControlsButtonClose {
+  @media (any-hover: hover) {
+    transition: background-color 0.2s ease 0s;
+
+    &:hover {
+      background-color: #c42b1c;
+    }
+
+    &:active {
+      transition: background-color 0.1s ease 0s;
+      background-color: #c42b1c;
+    }
+  }
+}
