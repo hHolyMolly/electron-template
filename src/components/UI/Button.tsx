@@ -19,14 +19,10 @@ type Props<T = React.ReactNode> = {
 };
 
 const Button: React.FC<Props> = ({ children, className, style, onClick, type = 'button', status = 'loaded', ariaLabel, before, after }) => {
-  const onClickButton = React.useCallback(() => {
-    onClick?.();
-  }, [onClick]);
-
   return (
     <button
       className={classNames(
-        'overflow-hidden rounded-[8px] bg-blue-500 text-center font-semibold text-white',
+        'gap-x-[6px] inline-flex justify-center items-center overflow-hidden rounded-[8px] bg-blue-500 text-center font-semibold text-white',
 
         className,
 
@@ -37,7 +33,7 @@ const Button: React.FC<Props> = ({ children, className, style, onClick, type = '
         'disabled:pointer-events-none disabled:opacity-50'
       )}
       style={style}
-      onClick={onClickButton}
+      onClick={() => onClick?.()}
       type={type}
       disabled={status === 'error'}
       aria-label={ariaLabel}
