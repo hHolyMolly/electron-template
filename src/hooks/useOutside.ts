@@ -1,7 +1,7 @@
 import React from 'react';
 
 type TypeUseOutsideReturn = {
-  ref: any;
+  ref: React.Ref<HTMLDivElement>;
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -9,15 +9,18 @@ type TypeUseOutsideReturn = {
 function useOutside(initialActive: boolean, action?: () => void): TypeUseOutsideReturn {
   const [isActive, setIsActive] = React.useState<boolean>(initialActive);
 
-  const ref = React.useRef<HTMLElement | null>(null);
+  const ref = React.useRef<HTMLDivElement | null>(null);
 
-  const handleClickOutside = (e: MouseEvent) => {
-    if (ref.current && !ref.current.contains(e.target as Node)) {
-      setIsActive(false);
+  const handleClickOutside = React.useCallback(
+    (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setIsActive(false);
 
-      if (action) action();
-    }
-  };
+        if (action) action();
+      }
+    },
+    [action]
+  );
 
   React.useEffect(() => {
     const body = window.document.body as HTMLBodyElement;
@@ -27,7 +30,7 @@ function useOutside(initialActive: boolean, action?: () => void): TypeUseOutside
     return () => {
       body.removeEventListener('click', handleClickOutside, true);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return { ref, isActive, setIsActive };
 }
